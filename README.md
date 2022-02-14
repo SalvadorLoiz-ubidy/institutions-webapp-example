@@ -1,34 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# institutions-webapp
 
-## Getting Started
+### Add Keycloak Server to your hosts file
 
-First, run the development server:
+1. Open hosts file of your local workstation with your text editor.
+   - For Windows, the hosts file is located at C:\Windows\System32\drivers\etc\hosts
+   - For Linux, the hosts file is located at /etc/hosts
+   - For Mac OS X, the hosts file is located at /etc/hosts
+2. Add a new line and insert the content in your hosts file.
 
-```bash
-npm run dev
-# or
-yarn dev
+```
+192.168.100.138    login.wanpngdev.com
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### DEVELOPMENT START UP
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1. Install dependencies using either of the commands:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```
+$ npm install / $ yarn install
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+2. Run development server using either of the commands:
 
-## Learn More
+```
+$ npm run dev / yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+3. Open `http://localhost:3040/` in your browser
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Please check our [frontend standards and practices](https://github.com/maridinsanmiguel-ubidy/frontend_standards_and_practices)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Including git flow, naming conventions, folder structure, react & css style guide, and robot support.
 
-## Deploy on Vercel
+### PRODUCTION DEPLOYMENT
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Create .env file from the root folder with variables:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+NODE_TLS_REJECT_UNAUTHORIZED=0
+RAZZLE_ENV={ENVIRONMENT}
+RAZZLE_API_URL={API_URL}
+
+```
+
+Note:
+
+```
+// Development environment is the default if you don't specify any below
+RAZZLE_API_URL=http://localhost:4020 // local
+RAZZLE_API_URL=https://uatapi.wanpng.com // uat
+RAZZLE_API_URL=https://api.wanpng.com // production
+```
+
+1. Install dependencies using either of the commands:
+
+```
+$ npm install / $ yarn install
+```
+
+2. Create build files using either of the commands:
+
+```
+$ npm run next build / $ yarn next build
+```
